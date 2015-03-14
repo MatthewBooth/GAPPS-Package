@@ -1,0 +1,6 @@
+GApps_*.zip
+temp/*
+.fuse_*
+
+tmp/
+

@@ -1,0 +1,23 @@
+#!/bin/bash
+
+VERSION=$(date +%Y%m%d)
+FILE=
+function buildNexus {
+	FILE=GApps_Nexus-${VERSION}.zip
+	rm -rf GApps_Nexus-*.zip
+cd GApps_Nexus
+	7za a -mx9 -xr@../tools/exclusion.txt ../"$FILE" META-INF system
+	cd ..
+}
+
+echo "Select to either BUILD the ROM, or just the modified apps/jars"
+select CHOICE in "Full" "Lite" "Modular" "Nexus"; do
+    case "$CHOICE" in
+        Full)  break;;
+        Lite)  break;;
+	Modular)  break;;
+	Nexus) buildNexus break;;
+    esac
+done
+
+exit 0
