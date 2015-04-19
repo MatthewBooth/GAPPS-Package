@@ -13,7 +13,7 @@ cd GApps_Nexus
 function buildModular {
 	FILE=GApps_Nexus_Modular-${VERSION}.zip
 	rm -rf GApps_Nexus_Modular-*.zip
-cd GApps_Nexus
+cd GApps_Modular
 	7za a -mx9 -xr@../tools/exclusion.txt ../"$FILE" META-INF ../GApps_Nexus/system
 	cd ..
 }
