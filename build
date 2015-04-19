@@ -10,12 +10,20 @@ cd GApps_Nexus
 	cd ..
 }
 
+function buildModular {
+	FILE=GApps_Nexus_Modular-${VERSION}.zip
+	rm -rf GApps_Nexus_Modular-*.zip
+cd GApps_Nexus
+	7za a -mx9 -xr@../tools/exclusion.txt ../"$FILE" META-INF ../GApps_Nexus/system
+	cd ..
+}
+
 echo "Select to either BUILD the ROM, or just the modified apps/jars"
 select CHOICE in "Full" "Lite" "Modular" "Nexus"; do
     case "$CHOICE" in
         Full)  break;;
         Lite)  break;;
-	Modular)  break;;
+	Modular)  buildModular break;;
 	Nexus) buildNexus break;;
     esac
 done
